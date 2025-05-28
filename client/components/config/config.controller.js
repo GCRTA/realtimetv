@@ -22,7 +22,7 @@ function ConfigCtrl($rootScope, $state, $translate, ScreenConfig) {
 
     clevelandLocations: [
       { name: 'Current Location', lat: null, lng: null, isCurrent: true },
-      { name: 'Airport Rapid Sttion', lat: 41.410592808463434, lng: --81.83658490145679 },
+      { name: 'Airport Rapid Sttion', lat: 41.410592808463434, lng: -81.83658490145679 },
       { name: 'Brookpark Rapid Station', lat: 41.41950486951733, lng: -81.82418132038563 },
       { name: 'Cedar-University Rapid Station', lat: 41.50036132078834, lng: -81.60534902710886 },
       { name: 'East 55th Rapid Station', lat: 41.48079481401043, lng: -81.651139574465 },
