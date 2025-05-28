@@ -19,6 +19,14 @@ Assuming you have node and pnpm installed (we recommend using `nodenv` to follow
 ```sh
 pnpm i
 pnpm build
+pnpm dev
+```
+
+For Production:
+
+```sh
+pnpm i
+pnpm build
 pnpm start
 ```
 
