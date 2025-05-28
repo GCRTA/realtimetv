@@ -20,6 +20,9 @@ importers:
       cookie-parser:
         specifier: ~1.0.1
         version: 1.0.1
+      dotenv:
+        specifier: ^16.5.0
+        version: 16.5.0
       ejs:
         specifier: ~0.8.8
         version: 0.8.8
