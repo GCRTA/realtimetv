@@ -22,14 +22,23 @@ function ConfigCtrl($rootScope, $state, $translate, ScreenConfig) {
 
     clevelandLocations: [
       { name: 'Current Location', lat: null, lng: null, isCurrent: true },
-      { name: 'Public Square', lat: 41.4995, lng: -81.6954 },
-      { name: 'Tower City Center', lat: 41.4975, lng: -81.6937 },
-      { name: 'Playhouse Square', lat: 41.5023, lng: -81.6824 },
-      { name: 'Cleveland State University', lat: 41.5028, lng: -81.6745 },
-      { name: 'E. 4th Street', lat: 41.4998, lng: -81.6905 },
-      { name: 'Gateway District', lat: 41.4965, lng: -81.6885 },
-      { name: 'Progressive Field', lat: 41.4962, lng: -81.6852 },
-      { name: 'Rocket Mortgage FieldHouse', lat: 41.4965, lng: -81.6881 }
+      { name: 'Airport Rapid Sttion', lat: 41.410592808463434, lng: --81.83658490145679 },
+      { name: 'Brookpark Rapid Station', lat: 41.41950486951733, lng: -81.82418132038563 },
+      { name: 'Cedar-University Rapid Station', lat: 41.50036132078834, lng: -81.60534902710886 },
+      { name: 'East 55th Rapid Station', lat: 41.48079481401043, lng: -81.651139574465 },
+      { name: 'Louis Stokes-Windermere Rapid Station', lat: 41.53069557710576, lng: -81.58482870329816}, 
+      { name: 'Parma Transit Center', lat: 41.38035320222386, lng: -81.74542397622126},
+      { name: 'Puritas-West 150th Rapid Station', lat: 41.44093227491849, lng: -81.80560850820272},
+      { name: 'Southgate Transit Center', lat: 41.41333392107179, lng: -81.53647891669462},
+      { name: 'Stephanie Tubbs Jones Transit Center', lat: 41.500025812857956, lng: -81.6748355554305},
+      { name: 'Superior Rapid Station', lat: 41.52310095279765, lng:  -81.5922001030831},
+      { name: 'Tower City', lat: 41.497652542726684, lng: -81.6939645456291 }, 
+      { name: 'Triskett Rapid Station', lat:  41.46625379002145, lng: -81.78495719082885 },
+      { name: 'West 117th-Madison Rapid Station', lat: 41.47651762302907, lng: -81.76794446097082 }, 
+      { name: 'West 65th-Lorain Rapid Station', lat: 41.47644077437727, lng:  -81.72816820964225 },
+      { name: 'West Blvd-Cudell Rapid Station', lat: 41.48041154114498, lng:  -81.75330820687311 },
+      { name: 'West Park Rapid Station', lat: 41.45732062480089, lng: -81.79265481189485 },
+      { name: 'Westgate Transit Center', lat: 41.46085157401124, lng: -81.85454734747715 } 
     ],
     onLocationSelected: onLocationSelected,
 
