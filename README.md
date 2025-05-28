@@ -22,6 +22,12 @@ pnpm build
 pnpm dev
 ```
 
+Then follow the instructions and open http://localhost:8080
+
+3) Deploy somewhere! 
+
+You should be ready to deploy somewhere if you want to use it for a longer amount of time. 
+
 For Production:
 
 ```sh
@@ -29,12 +35,6 @@ pnpm i
 pnpm build
 pnpm start
 ```
-
-Then follow the instructions and open http://localhost:8080
-
-3) Deploy somewhere! 
-
-You should be ready to deploy somewhere if you want to use it for a longer amount of time. 
 
 ## Contribute
 
