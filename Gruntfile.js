@@ -220,13 +220,12 @@ module.exports = function (grunt) {
     usemin: {
       html: ['<%= yeoman.dist %>/public/{,*/}*.html'],
       css: ['<%= yeoman.dist %>/public/{,*/}*.css'],
-      js: ['<%= yeoman.dist %>/public/{,*/}*.js'],
+      js: ['<%= yeoman.dist %>/public/app/*.js'],
       options: {
         assetsDirs: [
           '<%= yeoman.dist %>/public',
           '<%= yeoman.dist %>/public/assets/images'
         ],
-        // This is so we update image references in our ng-templates
         patterns: {
           js: [
             [/(assets\/images\/.*?\.(?:gif|jpeg|jpg|png|webp|svg))/gm, 'Update the JS to reference our revved images']
@@ -235,15 +234,27 @@ module.exports = function (grunt) {
       }
     },
 
-    // Allow the use of non-minsafe AngularJS files. Automatically makes it
-    // minsafe compatible so Uglify does not destroy the ng references
-    ngAnnotate: {
+
+    babel: {
+      options: {
+        sourceMap: true,
+        presets: [
+          ['@babel/preset-env', {
+            targets: {
+              browsers: ['last 2 versions', 'ie >= 11']
+            },
+            modules: false
+          }]
+        ],
+        plugins: ['angularjs-annotate']
+      },
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/concat',
-          src: '**/*.js',
-          dest: '.tmp/concat'
+          cwd: '.tmp/concat/app',
+          src: ['*.js'],
+          dest: '.tmp/concat/app_es5',
+          ext: '.js'
         }]
       }
     },
@@ -300,6 +311,11 @@ module.exports = function (grunt) {
             'assets/i18n/*',
             'index.html'
           ]
+        }, {
+          expand: true,
+          cwd: '.tmp/concat/app_es5',
+          dest: '<%= yeoman.dist %>/public/app',
+          src: ['*.js']
         }, {
           expand: true,
           cwd: '.tmp/images',
@@ -466,11 +482,10 @@ module.exports = function (grunt) {
     'autoprefixer',
     'ngtemplates',
     'concat',
-    'ngAnnotate',
+    'babel',
     'copy:dist',
     //'cdnify',
     'cssmin',
-    'uglify',
     'rev',
     'usemin'
   ]);

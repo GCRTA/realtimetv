@@ -21,12 +21,16 @@
     "serve-favicon": "~2.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.27.3",
+    "@babel/preset-env": "^7.27.2",
+    "babel-plugin-angularjs-annotate": "^0.10.0",
     "bower": "^1.8.14",
     "connect-livereload": "~0.4.1",
     "dotenv-cli": "^7.4.4",
     "grunt": "^0.4.5",
     "grunt-angular-templates": "^0.5.9",
     "grunt-autoprefixer": "~0.7.6",
+    "grunt-babel": "^8.0.0",
     "grunt-build-control": "~0.4.0",
     "grunt-cli": "^1.4.3",
     "grunt-concurrent": "~0.5.0",
@@ -59,7 +63,7 @@
     "time-grunt": "~0.3.2"
   },
   "scripts": {
-    "start": "dotenv -e .env -o -- node server/app.js",
+    "start": "dotenv -e .env -o -- node dist/server/app.js",
     "build": "bower install && grunt build"
   },
   "private": true
