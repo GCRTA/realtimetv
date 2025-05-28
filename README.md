@@ -35,8 +35,3 @@ pnpm i
 pnpm build
 pnpm start
 ```
-
-## Contribute
-
-This project was built mostly for fun and hasn't been updated recently and needs some love. PRs welcome!"# TransitTV" 
-# transittv
