@@ -1,7 +1,7 @@
 <div ng-class="{ white: ctrl.useBlackText(route) }" ng-style="{ color: ctrl.useBlackText(route) ? '#000000' : ('#' + route.route_color) }">
   <h2>
     <img ng-show="route.route_display_short_name.elements[0]" class="{{ 'img' + ctrl.getImageSize(route) }}" ng-src="{{ ctrl.getImageUrl(route, 0) }}" /><!--
- --><span>{{ route.route_display_short_name.elements[1] }}<i ng-bind="route.branch_code"></i></span><!--
+ --><span>{{ ctrl.getRouteName(route) }}<i ng-bind="route.branch_code"></i></span><!--
  --><img ng-show="route.route_display_short_name.elements[2]" class="{{ 'img' + ctrl.getImageSize(route) }}" ng-src="{{ ctrl.getImageUrl(route, 2) }}" />
   </h2>
 

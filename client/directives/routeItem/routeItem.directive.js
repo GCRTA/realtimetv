@@ -30,6 +30,7 @@ function RouteItemCtrl(Nearby) {
     getPinUrl: getPinUrl,
     getImageUrl: getImageUrl,
     getImageSize: getImageSize,
+    getRouteName: getRouteName,
 
     hasShownDeparture: Nearby.hasShownDeparture,
     shouldShowDeparture: shouldShowDeparture
@@ -75,5 +76,12 @@ function RouteItemCtrl(Nearby) {
 
   function shouldShowDeparture(item) {
     return Nearby.shouldShowDeparture(item.departure_time);
+  }
+
+  function getRouteName(route) {
+    if (route.mode_name === 'Subway' || route.mode_name === 'Light Rail') {
+      return route.route_short_name + ' Line';
+    }
+    return route.route_display_short_name.elements[1];
   }
 }
