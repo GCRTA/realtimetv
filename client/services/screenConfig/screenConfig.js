@@ -36,7 +36,7 @@ function ScreenConfig($rootScope, $state, $http, $q, $cookies) {
     },
 
     timeFormat: 'HH:mm',
-    autoscrollEnabled: true,
+    autoscrollEnabled: false,
     autoscrollInterval: 10, // seconds
     routesPerRow: 4, // number of routes to display per row
     fontSize: 'normal', // font size setting: 'normal', 'large', 'larger'
