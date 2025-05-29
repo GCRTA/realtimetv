@@ -31,12 +31,17 @@ function RouteItemCtrl(Nearby) {
     getImageUrl: getImageUrl,
     getImageSize: getImageSize,
     getRouteName: getRouteName,
+    hasAlerts: hasAlerts,
 
     hasShownDeparture: Nearby.hasShownDeparture,
     shouldShowDeparture: shouldShowDeparture
   });
 
   function useBlackText(route) {
+    // For light rail and subway routes, use their route color for text
+    if (route.mode_name === 'Light Rail' || route.mode_name === 'Subway') {
+      return false;
+    }
     return route.route_text_color === '000000';
   }
 
@@ -83,5 +88,9 @@ function RouteItemCtrl(Nearby) {
       return route.route_short_name + ' Line';
     }
     return route.route_display_short_name.elements[1];
+  }
+
+  function hasAlerts(route) {
+    return route.alerts && route.alerts.length > 0;
   }
 }

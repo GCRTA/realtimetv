@@ -178,6 +178,11 @@
   overflow: hidden;
 }
 
+.route .alert-icon {
+  display: inline-block;
+  font-size: 1.2em;
+  cursor: help;
+}
 
 @-webkit-keyframes realtimeAnim {
   0%   {opacity: 0.5;}
