@@ -21,19 +21,23 @@ function Nearby($http, $q) {
     var deferred = $q.defer(),
       params = 'lat=' + location.latitude + '&lon=' + location.longitude + '&max_distance=' + radius;
 
-		$http({
-			method: 'GET',
-			url: '/api/routes/nearby?' + params
-		}).then(function (res) {
-			var routes = res.data.routes;
+    console.log('Making request to /api/routes/nearby with params:', params);
+
+    $http({
+      method: 'GET',
+      url: '/api/routes/nearby?' + params
+    }).then(function (res) {
+      console.log('Received response:', res.data);
+      var routes = res.data.routes;
       routes = filterRoutes(routes);
+      console.log('Filtered routes:', routes);
+      deferred.resolve(routes);
+    }, function (err) {
+      console.error('Error fetching routes:', err);
+      deferred.reject(err);
+    });
 
-			deferred.resolve(routes);
-		}, function (err) {
-			deferred.reject(err);
-		});
-
-		return deferred.promise;
+    return deferred.promise;
   }
 
   function hasShownDeparture(route, itinerary) {
@@ -55,8 +59,12 @@ function Nearby($http, $q) {
   }
 
   function shouldShowDeparture(departure) {
-    var diff = departure * 1000 - new Date().getTime();
 
+    //For development purpose, uncomment next line to see lines. Remember to comment out when building for production
+    return true;
+
+    // In production, check the time window.
+    var diff = departure * 1000 - new Date().getTime();
     return diff > 0 && diff <= 130 * 60000;
   }
 
