@@ -6,7 +6,7 @@ angular.module('transitScreenApp')
       template: '<div class="alert-banner" ng-if="ctrl.hasAlerts()">' +
                 '  <div class="alert-content">' +
                 '    <i class="alert-icon">⚠️</i>' +
-                '    <span ng-bind="ctrl.getAlertMessage()"></span>' +
+                '    <span ng-repeat="msg in ctrl.getAlertMessages() track by $index">{{msg}}<span ng-if="!$last">, </span></span>' +
                 '  </div>' +
                 '</div>',
       restrict: 'E',
@@ -24,7 +24,7 @@ function AlertBannerCtrl() {
 
   angular.extend(vm, {
     hasAlerts: hasAlerts,
-    getAlertMessage: getAlertMessage
+    getAlertMessages: getAlertMessages
   });
 
   function hasAlerts() {
@@ -34,10 +34,8 @@ function AlertBannerCtrl() {
     });
   }
 
-  function getAlertMessage() {
-    if (!vm.routes) return '';
-    
-    // Get all unique alerts across routes
+  function getAlertMessages() {
+    if (!vm.routes) return [];
     var allAlerts = [];
     vm.routes.forEach(function(route) {
       if (route.alerts && route.alerts.length > 0) {
@@ -50,8 +48,6 @@ function AlertBannerCtrl() {
         });
       }
     });
-
-    // Return the first alert's title if there are any alerts
-    return allAlerts.length > 0 ? allAlerts[0].title : '';
+    return allAlerts.map(function(alert) { return alert.title; });
   }
 } 

@@ -205,7 +205,15 @@ exports.nearby = function (req, res) {
           }
       },
       {
-          "alerts": [],
+          "alerts": [
+              {
+                  "created_at": 1735326900,
+                  "description": "This is a test",
+                  "effect": "NO_SERVICE",
+                  "severity": "Severe",
+                  "title": "Test Title"
+              }
+          ],
           "compact_display_short_name": {
               "boxed_text": "",
               "elements": [
