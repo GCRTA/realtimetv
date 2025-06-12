@@ -19,22 +19,26 @@ function RouteItem() {
   return directive;
 }
 
-function RouteItemCtrl(Nearby) {
+function RouteItemCtrl(Nearby, $rootScope) {
   var vm = this;
 
   angular.extend(vm, {
     useBlackText: useBlackText,
     getCellStyle: getCellStyle,
-
     getTime: getTime,
     getPinUrl: getPinUrl,
     getImageUrl: getImageUrl,
     getImageSize: getImageSize,
     getRouteName: getRouteName,
     hasAlerts: hasAlerts,
-
+    isActiveRoute: isActiveRoute,
     hasShownDeparture: Nearby.hasShownDeparture,
     shouldShowDeparture: shouldShowDeparture
+  });
+
+  // Listen for changes to the current alert route
+  $rootScope.$on('currentAlertRouteChanged', function(event, route) {
+    vm.currentAlertRoute = route;
   });
 
   function useBlackText(route) {
@@ -92,5 +96,9 @@ function RouteItemCtrl(Nearby) {
 
   function hasAlerts(route) {
     return route.alerts && route.alerts.length > 0;
+  }
+
+  function isActiveRoute(route) {
+    return vm.currentAlertRoute && vm.currentAlertRoute.global_route_id === route.global_route_id;
   }
 }

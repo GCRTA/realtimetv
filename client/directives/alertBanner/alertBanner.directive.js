@@ -19,7 +19,7 @@ angular.module('transitScreenApp')
     };
   });
 
-function AlertBannerCtrl($interval, $scope, ScreenConfig) {
+function AlertBannerCtrl($interval, $scope, $rootScope, ScreenConfig) {
   var vm = this;
   var alertInterval;
   var ALERT_DURATION = 20000; // 20 seconds
@@ -29,7 +29,8 @@ function AlertBannerCtrl($interval, $scope, ScreenConfig) {
     getAlertMessages: getAlertMessages,
     currentAlert: '',
     currentIndex: 0,
-    totalAlerts: 0
+    totalAlerts: 0,
+    currentAlertRoute: null
   });
 
   // Watch for changes in routes
@@ -55,24 +56,32 @@ function AlertBannerCtrl($interval, $scope, ScreenConfig) {
     if (hasAlerts()) {
       var alerts = getAlertMessages();
       if (alerts.length > 0) {
-        vm.currentAlert = alerts[0];
+        vm.currentAlert = alerts[0].message;
         vm.currentIndex = 0;
         vm.totalAlerts = alerts.length;
+        vm.currentAlertRoute = alerts[0].route;
+        $rootScope.$broadcast('currentAlertRouteChanged', vm.currentAlertRoute);
         
         // Start cycling through alerts
         alertInterval = $interval(function() {
           vm.currentIndex = (vm.currentIndex + 1) % alerts.length;
-          vm.currentAlert = alerts[vm.currentIndex];
+          vm.currentAlert = alerts[vm.currentIndex].message;
+          vm.currentAlertRoute = alerts[vm.currentIndex].route;
+          $rootScope.$broadcast('currentAlertRouteChanged', vm.currentAlertRoute);
         }, ALERT_DURATION);
       } else {
         // If no alerts after filtering, clear the current alert
         vm.currentAlert = '';
         vm.totalAlerts = 0;
+        vm.currentAlertRoute = null;
+        $rootScope.$broadcast('currentAlertRouteChanged', null);
       }
     } else {
       // If no alerts at all, clear the current alert
       vm.currentAlert = '';
       vm.totalAlerts = 0;
+      vm.currentAlertRoute = null;
+      $rootScope.$broadcast('currentAlertRouteChanged', null);
     }
   }
 
@@ -97,14 +106,17 @@ function AlertBannerCtrl($interval, $scope, ScreenConfig) {
       if (isRouteVisible(route) && route.alerts && route.alerts.length > 0) {
         route.alerts.forEach(function(alert) {
           if (!allAlerts.some(function(existing) {
-            return existing.title === alert.title;
+            return existing.message === alert.title;
           })) {
-            allAlerts.push(alert);
+            allAlerts.push({
+              message: alert.title,
+              route: route
+            });
           }
         });
       }
     });
-    return allAlerts.map(function(alert) { return alert.title; });
+    return allAlerts;
   }
 
   function isRouteVisible(route) {

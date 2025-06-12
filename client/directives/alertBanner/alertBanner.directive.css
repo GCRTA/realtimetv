@@ -40,6 +40,24 @@
   margin-left: 8px;
 }
 
+.route-active {
+  animation: highlight 2s infinite;
+  box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+  border: 2px solid #FFB657;
+  border-radius: 4px;
+  position: relative;
+}
+
+.route-active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: repeating-linear-gradient(45deg, #FFB657, #FFB657 10px, #000000 10px, #000000 20px);
+}
+
 @keyframes pulse {
   0% {
     background: linear-gradient(90deg, #ff4d4d, #ff8080);
@@ -49,5 +67,17 @@
   }
   100% {
     background: linear-gradient(90deg, #ff4d4d, #ff8080);
+  }
+}
+
+@keyframes highlight {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 77, 77, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
   }
 } 
