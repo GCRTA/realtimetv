@@ -18,19 +18,22 @@
   font-weight: bold;
   font-size: 3em;
   border-top: 10px solid #FFB657;
-  animation: pulse-alert 2s infinite;
 }
 
-@keyframes pulse-alert {
-  0% {
-    background-color: #92101d;
-  }
-  50% {
-    background-color: #b31324;
-  }
-  100% {
-    background-color: #92101d;
-  }
+.alert-banner::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: repeating-linear-gradient(
+    45deg,
+    #FFB657,
+    #FFB657 10px,
+    #000000 10px,
+    #000000 20px
+  );
 }
 
 .alert-banner .alert-content {

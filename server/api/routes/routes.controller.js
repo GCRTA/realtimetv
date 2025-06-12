@@ -210,7 +210,7 @@ exports.nearby = function (req, res) {
                   "created_at": 1735326900,
                   "description": "This is a test",
                   "effect": "NO_SERVICE",
-                  "severity": "Severe",
+                  "severity": "Info",
                   "title": "Test Title"
               }
           ],
