@@ -26,7 +26,7 @@ function ScreenConfig($rootScope, $state, $http, $q, $cookies) {
   angular.extend(vm, {
     id: '',
 
-    isEditing: true,
+    isEditing: false,
     title: '',
     routeOrder: [],
     hiddenRoutes: [],
