@@ -6,6 +6,7 @@
   flex: 1 1 calc(100% / var(--routes-per-row, 4));
   min-width: 300px;
   max-width: 100%;
+  position: relative;
 }
 
 .with-map .route {
@@ -182,6 +183,30 @@
   display: inline-block;
   font-size: 1.2em;
   cursor: help;
+  position: absolute;
+  right: .5em;
+}
+
+.route .alert-count {
+  position: absolute;
+  top: 10px;
+  right: 1em;
+  border-radius: 100%;
+  background: #FFB957;
+  color: #4A4351;
+  border-radius: 100%;
+  font-size: 1.5em;
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
+  z-index: 1;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.route .white .alert-count {
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 @-webkit-keyframes realtimeAnim {
