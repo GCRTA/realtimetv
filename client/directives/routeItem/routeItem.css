@@ -271,10 +271,11 @@
 }
 
 .route-active{
-  border: 4px solid #FFB657;
+  border: 6px solid #FFB657;
   padding: 3em 1em 0 1em;
   position: relative;
   border-radius: 4px;
+  background-color: #ffe2be;
 }
 
 .route-active::before {
