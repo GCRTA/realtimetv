@@ -208,10 +208,10 @@ exports.nearby = function (req, res) {
           "alerts": [
               {
                   "created_at": 1735326900,
-                  "description": "This is a test",
+                  "description": "Test Alert for the 86",
                   "effect": "NO_SERVICE",
                   "severity": "Info",
-                  "title": "Test Title"
+                  "title": "Test Alert for the 86"
               }
           ],
           "compact_display_short_name": {
@@ -743,7 +743,22 @@ exports.nearby = function (req, res) {
           }
       },
       {
-          "alerts": [],
+          "alerts": [
+            {
+                "created_at": 1735326900,
+                "description": "#1 Test Alert for the 83",
+                "effect": "NO_SERVICE",
+                "severity": "Severe",
+                "title": "#1 Test Alert for the 83"
+            },
+            {
+                "created_at": 1735326900,
+                "description": "#2 Test Alert for the 83",
+                "effect": "NO_SERVICE",
+                "severity": "Severe",
+                "title": "#2 Test Alert for the 83"
+            }
+          ],
           "compact_display_short_name": {
               "boxed_text": "",
               "elements": [

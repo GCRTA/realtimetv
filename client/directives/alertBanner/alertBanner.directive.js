@@ -6,7 +6,7 @@ angular.module('transitScreenApp')
       template: '<div class="alert-banner" ng-if="ctrl.hasAlerts()">' +
                 '  <div class="alert-content">' +
                 '    <span class="alert-icon">⚠️</span>' +
-                '    <span class="alert-message">{{ctrl.currentAlert}}</span>' +
+                '    <span class="alert-message">{{ctrl.currentAlert}} <span class="alert-counter" ng-if="ctrl.totalAlerts > 1">({{ctrl.currentIndex + 1}} of {{ctrl.totalAlerts}})</span></span>' +
                 '  </div>' +
                 '</div>',
       restrict: 'E',
@@ -22,13 +22,14 @@ angular.module('transitScreenApp')
 function AlertBannerCtrl($interval, $scope, ScreenConfig) {
   var vm = this;
   var alertInterval;
-  var ALERT_DURATION = 10000; // 10 seconds
+  var ALERT_DURATION = 20000; // 20 seconds
 
   angular.extend(vm, {
     hasAlerts: hasAlerts,
     getAlertMessages: getAlertMessages,
     currentAlert: '',
-    currentIndex: 0
+    currentIndex: 0,
+    totalAlerts: 0
   });
 
   // Watch for changes in routes
@@ -56,6 +57,7 @@ function AlertBannerCtrl($interval, $scope, ScreenConfig) {
       if (alerts.length > 0) {
         vm.currentAlert = alerts[0];
         vm.currentIndex = 0;
+        vm.totalAlerts = alerts.length;
         
         // Start cycling through alerts
         alertInterval = $interval(function() {
@@ -65,10 +67,12 @@ function AlertBannerCtrl($interval, $scope, ScreenConfig) {
       } else {
         // If no alerts after filtering, clear the current alert
         vm.currentAlert = '';
+        vm.totalAlerts = 0;
       }
     } else {
       // If no alerts at all, clear the current alert
       vm.currentAlert = '';
+      vm.totalAlerts = 0;
     }
   }
 
