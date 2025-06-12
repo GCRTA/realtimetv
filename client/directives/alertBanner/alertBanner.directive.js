@@ -22,7 +22,7 @@ angular.module('transitScreenApp')
 function AlertBannerCtrl($interval, $scope, $rootScope, ScreenConfig) {
   var vm = this;
   var alertInterval;
-  var ALERT_DURATION = 20000; // 20 seconds
+  var ALERT_DURATION = 10000; // 10 seconds
 
   angular.extend(vm, {
     hasAlerts: hasAlerts,
