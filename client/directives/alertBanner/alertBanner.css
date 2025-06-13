@@ -19,6 +19,7 @@
   font-size: 3em;
   border-top: 10px solid #FFB657;
   min-height: 100px;
+  display: none;
 }
 
 .alert-banner::before {

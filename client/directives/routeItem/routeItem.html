@@ -1,30 +1,47 @@
-<div ng-class="{ white: ctrl.useBlackText(route), 'route-active': ctrl.isActiveRoute(route) }" ng-style="{ color: ctrl.useBlackText(route) ? '#000000' : ('#' + route.route_color) }">
-  <div class="alert-count" ng-if="ctrl.hasAlerts(route) && ctrl.isActiveRoute(route)">{{route.alerts.length}}</div>
-  <h2>
-    <img ng-show="route.route_display_short_name.elements[0]" class="{{ 'img' + ctrl.getImageSize(route) }}" ng-src="{{ ctrl.getImageUrl(route, 0) }}" /><!--
+<div class="flip-card" ng-class="{ white: ctrl.useBlackText(route), 'route-active': ctrl.hasAlerts(route), 'has-alerts': ctrl.hasAlerts(route) }" ng-style="{ color: ctrl.useBlackText(route) ? '#000000' : ('#' + route.route_color) }">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <div class="alert-count" ng-if="ctrl.hasAlerts(route)">{{route.alerts.length}}</div>
+      <h2>
+        <img ng-show="route.route_display_short_name.elements[0]" class="{{ 'img' + ctrl.getImageSize(route) }}" ng-src="{{ ctrl.getImageUrl(route, 0) }}" /><!--
  --><span>{{ ctrl.getRouteName(route) }}<i ng-bind="route.branch_code"></i></span><!--
  --><img ng-show="route.route_display_short_name.elements[2]" class="{{ 'img' + ctrl.getImageSize(route) }}" ng-src="{{ ctrl.getImageUrl(route, 2) }}" />
-    <i ng-if="ctrl.hasAlerts(route) && ctrl.isActiveRoute(route)" class="alert-icon" title="{{ route.alerts[0].title }}">⚠️</i>
-  </h2>
+        <i ng-if="ctrl.hasAlerts(route)" class="alert-icon" title="{{ route.alerts[0].title }}">⚠️</i>
+      </h2>
 
-  <div class="content" ng-repeat="dir in route.itineraries">
-    <div class="stop_name" style="background-image: url('{{ ctrl.getPinUrl(route) }}')">{{ dir.closest_stop.stop_name }}</div>
-    <div class="direction" ng-style="ctrl.getCellStyle(route)">
-      <h3 ng-bind="dir.merged_headsign"></h3>
+      <div class="content" ng-repeat="dir in route.itineraries">
+        <div class="stop_name" style="background-image: url('{{ ctrl.getPinUrl(route) }}')">{{ dir.closest_stop.stop_name }}</div>
+        <div class="direction" ng-style="ctrl.getCellStyle(route)">
+          <h3 ng-bind="dir.merged_headsign"></h3>
 
-      <div class="time" ng-show="ctrl.hasShownDeparture(route, dir)">
-        <h4 ng-repeat="item in dir.schedule_items | filter: ctrl.shouldShowDeparture">
-          <span ng-bind="ctrl.getTime(item.departure_time) | amDifference : null : 'minutes'"></span>
+          <div class="time" ng-show="ctrl.hasShownDeparture(route, dir)">
+            <h4 ng-repeat="item in dir.schedule_items | filter: ctrl.shouldShowDeparture">
+              <span ng-bind="ctrl.getTime(item.departure_time) | amDifference : null : 'minutes'"></span>
 
-          <i ng-show="item.is_real_time" class="realtime"></i>
-          <small ng-class="{ last: item.is_last }">{{ (item.is_last ? 'last' : 'min') }}</small>
-        </h4><h4>
-          <span class="inactive">&nbsp;</span>
-        </h4><h4>
-          <span class="inactive">&nbsp;</span>
-        </h4><h4>
-          <span class="inactive">&nbsp;</span>
-        </h4>
+              <i ng-show="item.is_real_time" class="realtime"></i>
+              <small ng-class="{ last: item.is_last }">{{ (item.is_last ? 'last' : 'min') }}</small>
+            </h4><h4>
+              <span class="inactive">&nbsp;</span>
+            </h4><h4>
+              <span class="inactive">&nbsp;</span>
+            </h4><h4>
+              <span class="inactive">&nbsp;</span>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flip-card-back">
+      <div class="back-content">
+        <h3>Route Alerts</h3>
+        <div class="alert-details" ng-repeat="alert in route.alerts">
+          <p class="alert-title">{{ alert.title }}</p>
+          <p class="alert-description">{{ alert.description }}</p>
+          <p class="alert-time" ng-if="alert.start_time">From: {{ alert.start_time | date:'MMM d, h:mm a' }}</p>
+          <p class="alert-time" ng-if="alert.end_time">Until: {{ alert.end_time | date:'MMM d, h:mm a' }}</p>
+          <hr ng-if="!$last">
+        </div>
+        <p ng-if="!route.alerts.length">No active alerts</p>
       </div>
     </div>
   </div>
