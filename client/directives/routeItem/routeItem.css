@@ -362,6 +362,11 @@
   background-color: rgba(255, 255, 255, 0.95);
   overflow-y: auto;
   height: 0;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 .flip-card.has-alerts .flip-card-inner[style*="rotateY(180deg)"] ~ .flip-card-back {
