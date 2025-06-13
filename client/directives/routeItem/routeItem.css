@@ -340,7 +340,7 @@
 
 /* Only apply animation to routes with alerts */
 .flip-card.has-alerts .flip-card-inner {
-  animation: flip 10s infinite;
+  animation: flip 30s infinite;
 }
 
 .flip-card-front, .flip-card-back {
