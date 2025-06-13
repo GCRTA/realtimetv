@@ -18,7 +18,14 @@ exports.nearby = function (req, res) {
                   "effect": "NO_SERVICE",
                   "severity": "Severe",
                   "title": "The Red Line W.117–Madison Station closes July 17, 2024 until further notice."
-              }
+              },
+              {
+                "created_at": 1735326900,
+                "description": "66R Shuttle Buses replace Red Line between Tower City and Airport",
+                "effect": "NO_SERVICE",
+                "severity": "Severe",
+                "title": "66R Shuttle Buses replace Red Line between Tower City and Airport"
+            }
           ],
           "compact_display_short_name": {
               "boxed_text": "",
