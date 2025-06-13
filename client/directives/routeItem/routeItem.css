@@ -437,7 +437,7 @@ li.alert-details::after{
     left: 0;
     top: 0;
     background-color: white;
-    border: 4px solid #3b3b3b;
+    border: 3px solid #3b3b3b;
     border-radius: 100%;
     top: 1.5em;
     transform: translateY(-50%);
