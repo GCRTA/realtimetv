@@ -33,7 +33,7 @@
     </div>
     <div class="flip-card-back">
       <div class="back-content">
-        <h2 class="header"><span class="back-content-alert-icon">⚠️</span> Alerts</h2>
+        <h2 class="header"><span class="back-content-alert-icon">⚠️</span>{{ ctrl.getRouteName(route) }} Alerts</h2>
         <ul>
           <li class="alert-details" ng-repeat="alert in route.alerts">
             <p class="alert-title">{{ alert.title }}</p>

@@ -272,7 +272,7 @@
 
 .route-active{
   border: 6px solid #FFB657;
-  padding: 3em 1em 0 1em;
+  padding: 2em 1em 0 1em;
   position: relative;
   border-radius: 4px;
   background-color: #ffe2be;
@@ -355,9 +355,9 @@
 
 .flip-card-back {
   transform: rotateY(180deg);
-  display: flex;
+  /* display: flex; */
   align-items: flex-start;
-  justify-content: center;
+  /* justify-content: center; */
   background-color: #ffe2be;
   overflow-y: auto;
   height: 0;
@@ -401,7 +401,7 @@
   margin-bottom: 1em;
   font-size: 2em;
   text-align: left;
-  color: #D7182A !important;
+  color: #3b3b3b !important;
 }
 
 .alert-description {
