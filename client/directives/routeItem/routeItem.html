@@ -33,14 +33,16 @@
     </div>
     <div class="flip-card-back">
       <div class="back-content">
-        <h3>Route Alerts</h3>
-        <div class="alert-details" ng-repeat="alert in route.alerts">
-          <p class="alert-title">{{ alert.title }}</p>
-          <p class="alert-description">{{ alert.description }}</p>
-          <p class="alert-time" ng-if="alert.start_time">From: {{ alert.start_time | date:'MMM d, h:mm a' }}</p>
-          <p class="alert-time" ng-if="alert.end_time">Until: {{ alert.end_time | date:'MMM d, h:mm a' }}</p>
-          <hr ng-if="!$last">
-        </div>
+        <h2 class="header"><span class="back-content-alert-icon">⚠️</span> Alerts</h2>
+        <ul>
+          <li class="alert-details" ng-repeat="alert in route.alerts">
+            <p class="alert-title">{{ alert.title }}</p>
+            <!-- <p class="alert-description">{{ alert.description }}</p> -->
+            <!-- <p class="alert-time" ng-if="alert.start_time">From: {{ alert.start_time | date:'MMM d, h:mm a' }}</p> -->
+            <!-- <p class="alert-time" ng-if="alert.end_time">Until: {{ alert.end_time | date:'MMM d, h:mm a' }}</p> -->
+            <!-- <hr ng-if="!$last"> -->
+          </li>
+        </ul>
         <p ng-if="!route.alerts.length">No active alerts</p>
       </div>
     </div>
