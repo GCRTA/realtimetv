@@ -1,10 +1,10 @@
 <div ng-class="{ white: ctrl.useBlackText(route), 'route-active': ctrl.isActiveRoute(route) }" ng-style="{ color: ctrl.useBlackText(route) ? '#000000' : ('#' + route.route_color) }">
-  <div class="alert-count" ng-if="ctrl.hasAlerts(route) && ctrl.isActiveRoute(route)">{{route.alerts.length}}</div>
+  <div class="alert-count" ng-if="ctrl.hasAlerts(route)">{{route.alerts.length}}</div>
   <h2>
     <img ng-show="route.route_display_short_name.elements[0]" class="{{ 'img' + ctrl.getImageSize(route) }}" ng-src="{{ ctrl.getImageUrl(route, 0) }}" /><!--
  --><span>{{ ctrl.getRouteName(route) }}<i ng-bind="route.branch_code"></i></span><!--
  --><img ng-show="route.route_display_short_name.elements[2]" class="{{ 'img' + ctrl.getImageSize(route) }}" ng-src="{{ ctrl.getImageUrl(route, 2) }}" />
-    <i ng-if="ctrl.hasAlerts(route) && ctrl.isActiveRoute(route)" class="alert-icon" title="{{ route.alerts[0].title }}">⚠️</i>
+    <i ng-if="ctrl.hasAlerts(route)" class="alert-icon" title="{{ route.alerts[0].title }}">⚠️</i>
   </h2>
 
   <div class="content" ng-repeat="dir in route.itineraries">
