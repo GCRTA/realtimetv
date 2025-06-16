@@ -1,4 +1,4 @@
-# RTA Transit-TV
+# RTA Real-Time display
 
 A customized display system adapted from [TransitApp’s Transit-TV](https://github.com/TransitApp/Transit-TV), used by the Greater Cleveland Regional Transit Authority (GCRTA) to show real-time departure information, alerts, and internal messages on facility screens.
 
