@@ -5,7 +5,7 @@ A customized display system adapted from [TransitApp’s Transit-TV](https://git
 ![Transit-TV Screenshot](./screenshot.png)
 
 > ⚠️ **Disclaimer**  
-> This project was originally built by the Transit team as a demonstration of their Transit API. This customized version is maintained by GCRTA and comes with no guarantee of any kind. Use at your own risk.
+> This project was originally built by the Transit team as a demonstration of their Transit API. This customized version is maintained by GCRTA and comes with no guarantee of any kind.
 
 ---
 
@@ -39,8 +39,9 @@ To run the project locally, ensure you have `node` and `pnpm` installed
 pnpm i
 pnpm build
 pnpm dev
+```
 
-### 3. Production
+### 3. For Production
 
 To run the project in production, ensure you have `node` and `pnpm` installed  
 (we recommend using `nodenv` to match the `.node-version` file):
@@ -49,3 +50,4 @@ To run the project in production, ensure you have `node` and `pnpm` installed
 pnpm i
 pnpm build
 pnpm start
+```
