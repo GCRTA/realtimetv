@@ -14,10 +14,9 @@ A customized display system adapted from [TransitApp’s Transit-TV](https://git
 This implementation includes several enhancements to better support GCRTA’s operational needs:
 
 - Custom layout and styling to reflect GCRTA branding
-- Cached API calls to reduce bandwidth and improve performance
 - Station-level configuration support
-- Optional rotation of internal announcements and service alerts
-- Improved fallback handling when the API is unavailable
+- Experimental configurable features
+- Rotation of internal announcements and alerts
 
 ---
 
