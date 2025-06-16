@@ -22,7 +22,7 @@ This implementation includes several enhancements to better support GCRTA’s op
 
 ## Getting Started
 
-### 1. Request API Access
+### 1. Request API Access (For production)
 
 Visit the [Transit API page](https://transitapp.com/apis) to request an API key.
 
@@ -33,9 +33,19 @@ Once you have your API key, place it in a `.env` file (API_KEY=your_api_key_here
 ### 2. Test Locally
 
 To run the project locally, ensure you have `node` and `pnpm` installed  
-(we recommend using `nodenv` to match the `.node-version` file):
+(we recommend using `nodenv` to match the `.node-version` file). Dev build uses mock data so API KEY not required.
 
 ```bash
 pnpm i
 pnpm build
 pnpm dev
+
+### 3. Production
+
+To run the project in production, ensure you have `node` and `pnpm` installed  
+(we recommend using `nodenv` to match the `.node-version` file):
+
+```bash
+pnpm i
+pnpm build
+pnpm start
