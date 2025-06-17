@@ -26,11 +26,13 @@ This implementation includes several enhancements to better support GCRTA's oper
 
 Visit the [Transit API page](https://transitapp.com/apis) to request an API key.
 
-Once you have your API key, place it in a `.env` file at the root of the project. Your .env file should look something like this:  
 
+Once you have your API key, place it in a `.env` file at the root of the project. Your .env file should look something like this:
+
+```bash
 NODE_ENV=production
 API_KEY=API_KEY_HERE
-
+```
 ---
 
 ### 2. Test Locally
