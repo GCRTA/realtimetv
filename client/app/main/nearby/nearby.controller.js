@@ -125,7 +125,9 @@ function NearbyCtrl($rootScope, $interval, ScreenConfig, Nearby) {
   });
 
   function loadNearby() {
+    console.log('Loading nearby routes...');
     Nearby.find(ScreenConfig.latLng, 1000).then(function (routes) {
+      console.log('Received routes:', routes);
       if (ScreenConfig.routeOrder) {
         var indexes = [];
 
@@ -150,6 +152,7 @@ function NearbyCtrl($rootScope, $interval, ScreenConfig, Nearby) {
       }
 
       vm.routes = routes;
+      console.log('Routes set to vm.routes:', vm.routes);
       
       // Start auto-scrolling after routes are loaded
       if (ScreenConfig.autoscrollEnabled) {
