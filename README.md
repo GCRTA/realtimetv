@@ -22,11 +22,14 @@ This implementation includes several enhancements to better support GCRTA's oper
 
 ## Getting Started
 
-### 1. Request API Access (For production)
+### 1. Request API Access
 
 Visit the [Transit API page](https://transitapp.com/apis) to request an API key.
 
-Once you have your API key, place it in a `.env` file (API_KEY=your_api_key_here) at the root of the project.
+Once you have your API key, place it in a `.env` file at the root of the project. Your .env file should look something like this:  
+
+NODE_ENV=production
+API_KEY=API_KEY_HERE
 
 ---
 
