@@ -56,3 +56,6 @@ pnpm i
 pnpm build
 pnpm start
 ```
+
+Production-ready files are in the dist/ directory.
+You can deploy the contents of this folder to your preferred hosting environment.
